@@ -442,12 +442,15 @@ class NotionHelper:
         has_more = True
         start_cursor = None
         while has_more:
+            print("query_all_by_book, database_id: " + database_id)
             response = self.client.databases.query(
                 database_id=database_id,
                 filter=filter,
                 start_cursor=start_cursor,
                 page_size=100,
             )
+            print("query result..")
+            print(response)
             start_cursor = response.get("next_cursor")
             has_more = response.get("has_more")
             results.extend(response.get("results"))
