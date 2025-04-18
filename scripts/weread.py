@@ -224,10 +224,13 @@ def append_blocks(pageId, contents):
     for index, value in enumerate(l):
         print(f"正在插入第{index+1}条笔记，共{len(l)}条")
         if "bookmarkId" in value:
+            print("插入的是bookmark")
             notion_helper.insert_bookmark(pageId, value)
         elif "reviewId" in value:
+            print("插入的是笔记")
             notion_helper.insert_review(pageId, value)
         else:
+            print("插入的是章节")
             notion_helper.insert_chapter(pageId, value)
 
 
