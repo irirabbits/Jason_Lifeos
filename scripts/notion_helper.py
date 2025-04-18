@@ -446,7 +446,7 @@ class NotionHelper:
             print(filter)
             response = self.client.databases.query(
                 database_id=database_id,
-                #filter=filter,
+                filter=filter,
                 start_cursor=start_cursor,
                 page_size=100,
             )
